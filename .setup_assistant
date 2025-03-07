@@ -1,0 +1,23 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: sfbot_can
+    relative_path: description/urdf/test.description.urdf.xacro
+  srdf:
+    relative_path: config/test.srdf
+  package_settings:
+    author_name: youngjin
+    author_email: heyyoungjin@gmail.com
+    generated_timestamp: 1741326132
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position

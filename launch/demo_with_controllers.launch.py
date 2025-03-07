@@ -16,13 +16,14 @@ def generate_launch_description():
             pipelines=["ompl", "chomp", "pilz_industrial_motion_planner"],
         )\
         .to_moveit_configs()
-
+    """
     ros2_controller_path = os.path.join(
         get_package_share_directory("test_moveit_config"),
         "config",
         "ros2_controllers.yaml",
     )
 
+    
     ros2_control_node = Node(
         package="controller_manager",
         executable="ros2_control_node",
@@ -43,7 +44,7 @@ def generate_launch_description():
         arguments=["joint_trajectory_controller", "--controller-manager", "/controller_manager"],
         output="screen",
     )
-    
+    """
     move_group_node = Node(
         package="moveit_ros_move_group",
         executable="move_group",
@@ -79,9 +80,7 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
-        ros2_control_node,
-        joint_state_broadcaster_spawner,
-        joint_trajectory_controller_spawner,
+
         robot_state_publisher_node,
         move_group_node,
         rviz_node,
